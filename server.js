@@ -7,6 +7,7 @@ const flash         = require('flash');
 const session       = require('express-session');
 const mongoose      = require('mongoose');
 const MongooseStore = require('connect-mongo')(session)
+const passport      = require('passport');
 
 container.resolve(function(users){
 
@@ -44,5 +45,8 @@ container.resolve(function(users){
             })
         }))
         app.use(flash());
+
+        app.use(passport.initialize());
+        app.use(passport.session());
     }
 });

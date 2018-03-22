@@ -26,12 +26,15 @@ passport.use('local-signup', new LocalStrategy({
             return done(err)
         }
         if(user){
-            return done(null, false, req.send({error: err}));
+            console.log('user created');
+            return done(null, false, res.flash({error: err}));
         }
 
         const newUser = new User();
+        
+        newUser.username = req.body.username;
         newUser.email = req.body.email;
-        newUser.password = req.body.password;
+        newUser.password = newUser.encryptPassword(req.body.password);
 
         newUser.save((err) => {
             done(null, newUser);

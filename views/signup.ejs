@@ -15,21 +15,28 @@
         </div>
         <form action="/signup" method="post">
 
-                <div class="a-form" >
+                <div class="a-form" > 
                         <div class="field">
-                            <label class="label">Name</label>
+                            <label class="label">Username</label>
                             <div class="control">
-                                <input class="input" type="text" placeholder="e.g Alex Smith">
+                                <input class="input" name="username" type="text" placeholder="e.g. alexsmith">
                             </div>
                         </div>
-                                
+
                         <div class="field">
                             <label class="label">Email</label>
                             <div class="control">
-                                <input class="input" type="email" placeholder="e.g. alexsmith@gmail.com">
+                                <input class="input" name="email" type="email" placeholder="e.g. alexsmith@gmail.com">
                             </div>
                         </div>
-            
+
+                        <div class="field">
+                            <label class="label">Password</label>
+                            <div class="control">
+                                <input class="input" name="password" type="password" placeholder="Password">
+                            </div>
+                        </div>
+
                         <p class="control">
                             <input class="button is-primary" type="submit"></input>
                         </p>
