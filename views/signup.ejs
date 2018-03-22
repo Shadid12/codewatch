@@ -11,29 +11,31 @@
 <body>
     <div class="container">
         <div class="notification">
-          Hello, new user <strong>Signup</strong> to get started :)
+            Hello, new user <strong>Signup</strong> to get started :)
         </div>
-        <div class="a-form" >
-            <div class="field">
-                <label class="label">Name</label>
-                <div class="control">
-                    <input class="input" type="text" placeholder="e.g Alex Smith">
-                </div>
-            </div>
-                    
-            <div class="field">
-                <label class="label">Email</label>
-                <div class="control">
-                    <input class="input" type="email" placeholder="e.g. alexsmith@gmail.com">
-                </div>
-            </div>
+        <form action="/signup" method="post">
 
-            <p class="control">
-                <a class="button is-primary">
-                    Submit
-                </a>
-            </p>
-        </div>
+                <div class="a-form" >
+                        <div class="field">
+                            <label class="label">Name</label>
+                            <div class="control">
+                                <input class="input" type="text" placeholder="e.g Alex Smith">
+                            </div>
+                        </div>
+                                
+                        <div class="field">
+                            <label class="label">Email</label>
+                            <div class="control">
+                                <input class="input" type="email" placeholder="e.g. alexsmith@gmail.com">
+                            </div>
+                        </div>
+            
+                        <p class="control">
+                            <input class="button is-primary" type="submit"></input>
+                        </p>
+                </div>
+            
+        </form>
     </div>
 </body>
 </html>
