@@ -13,6 +13,13 @@
         <div class="notification">
             Hello, new user <strong>Signup</strong> to get started :)
         </div>
+        <% if (errors.length > 0) { %>
+            <div class="notification">
+            <% _.forEach(errors, function(error) { %>
+                <strong><%= error %> </string></br>
+            <% }) %>
+            </div>
+        <% } %>
         <form action="/signup" method="post">
 
                 <div class="a-form" > 

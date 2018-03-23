@@ -17,7 +17,7 @@ passport.deserializeUser((id, done) => {
 passport.use('local-signup', new LocalStrategy({
     usernameField: 'email',
     passwordField: 'password',
-    passReqToCallback: true
+    passReqToCallback : true
 }, (req, email, password, done) => {
 
     User.findOne({'email': email}, (err, user) => {
@@ -26,8 +26,7 @@ passport.use('local-signup', new LocalStrategy({
             return done(err)
         }
         if(user){
-            console.log('user created');
-            return done(null, false, res.flash({error: err}));
+            return done(null, false, req.flash('errors', 'user with email already'));
         }
 
         const newUser = new User();

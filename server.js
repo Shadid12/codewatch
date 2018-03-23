@@ -8,8 +8,9 @@ const session       = require('express-session');
 const mongoose      = require('mongoose');
 const MongooseStore = require('connect-mongo')(session)
 const passport      = require('passport');
+const Validators    = require('express-validator');
 
-container.resolve(function(users){
+container.resolve(function(users,_){
 
     mongoose.Promise = global.Promise;
     mongoose.connect('mongodb://root:toor@ds253468.mlab.com:53468/auth', () => {
@@ -36,6 +37,7 @@ container.resolve(function(users){
         app.set('view engine', 'ejs');
         app.use(bodyParser.json());
         app.use(bodyParser.urlencoded({extended: true}));
+        app.use(Validators());
         app.use(session({
             secret: 'topsecrect',
             resave: true,
@@ -48,5 +50,7 @@ container.resolve(function(users){
 
         app.use(passport.initialize());
         app.use(passport.session());
+
+        app.locals._ = _;
     }
 });
